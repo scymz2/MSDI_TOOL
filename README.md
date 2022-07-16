@@ -7,6 +7,7 @@ This is the util tools for my MSC project: "Registration of UAV Imagery to Aeria
 The basic idea of the project is to investigate various methods for the registration of downward-facing (nadir) drone imagery to higher altitude aerial and satellite imagery (Google, Bing), and possibly develop a system base on visual localization and navigation of drones (UAV) as opposed to using a satellite navigation system such as GPS.
 
 ## 2.Dataset 
+The dataset used in this project is MSDI (Manchester Surface Drone Imagery) which collected and processed by myself.
 The image dataset could be found using the DIO: or the Link:
 
 The dataset contains totally 536 drone images of the city of manchester (447 downward facing and 89 45-degree forward facing) and 26 checkboard images taken by drone for camera calibration. 
