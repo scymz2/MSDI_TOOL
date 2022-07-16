@@ -2,9 +2,9 @@
 
 ## 1.Introduction
 
-This is the util tools for my MSC projects: "Registration of UAV Imagery to Aerial and Satellite Imagery" in the university of manchester, supervised by Terence Patrick Morley.  
+This is the util tools for my MSC project: "Registration of UAV Imagery to Aerial and Satellite Imagery" at the university of manchester, supervised by Terence Patrick Morley.  
 
-The basic idea of the project is to investigate various methods for the registration of downward-facing (nadir) drone imagery to higher altitude aerial and satellite imagery (Google, Bing), and possibly developing a system base on visual localisation and navigation of drones (UAV) as opposed to using a satellite navigation system such as GPS.
+The basic idea of the project is to investigate various methods for the registration of downward-facing (nadir) drone imagery to higher altitude aerial and satellite imagery (Google, Bing), and possibly develop a system base on visual localization and navigation of drones (UAV) as opposed to using a satellite navigation system such as GPS.
 
 ## 2.Dataset 
 The image dataset could be found using the DIO: or the Link:
@@ -40,10 +40,9 @@ The dataset contains totally 536 drone images of the city of manchester (447 dow
 ```
 
 ## 4.GCP selector 
-GCP selector is a tool for selecting ground control point in two images which need to be matched. By calculating the homography and project one image to another, 
-the average error of these GCP could be calculated to represent the quality of the feature matching algorithm.
+GCP selector is a tool for selecting ground control points in two images that need to be matched. By calculating the homography and projecting one image to another, the average error of these GCPs could be calculated to represent the quality of the feature matching algorithm.
 
-The user is able to select two images simutanously and resize the first image. Resizing images is because comparing two images with very different amounts of information might be very difficult (according to my experience). Using GaussianBlur and Resize could reduce image information and get better matching results.
+The user can select two images simultaneously and resize the first image. Resizing images is because comparing two images with very different amounts of information might be very difficult (according to my experience). Using GaussianBlur and Resize could reduce image information and get better matching results.
 
 This is how I choose the parameter of GaussianBlur: `KERNEL = (WIDTH_1 // WIDTH_2) ^ 2 # WIDTH_1 > WIDTH_2`
 
