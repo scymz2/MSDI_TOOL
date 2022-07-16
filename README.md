@@ -43,6 +43,10 @@ The dataset contains totally 536 drone images of the city of manchester (447 dow
 GCP selector is a tool for selecting ground control point in two images which need to be matched. By calculating the homography and project one image to another, 
 the average error of these GCP could be calculated to represent the quality of the feature matching algorithm.
 
+The user is able to select two images simutanously and resize the first image. Resizing images is because comparing two images with very different amounts of information might be very difficult (according to my experience). Using GaussianBlur and Resize could reduce image information and get better matching results.
+
+This is how I choose the parameter of GaussianBlur: `KERNEL = (WIDTH_1 // WIDTH_2) ^ 2 # WIDTH_1 > WIDTH_2`
+
 The following code is a sample GCP.cfg file:
 
 ```python
@@ -59,7 +63,7 @@ GCP,2,299,1052
 GCP,2,678,660
 ```
 
-## 5.Run utils tool
+## 5.Run util tool
 1. install Python 3.7 and required packages ` pip install -r requirements`
 2. apply for Google/Bing Static Map API KEY (Google is not free, but a free trial could be used for a couple of month)
 3. modify config.py
