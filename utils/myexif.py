@@ -1,3 +1,4 @@
+# Mochuan Zhan , 2022/ 7/15 The University of Manchester
 from exif import Image
 import piexif
 import glob
