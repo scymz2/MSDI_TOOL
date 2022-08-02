@@ -20,7 +20,7 @@ The dataset contains 599 drone images of Manchester (447 downward facing, 89 45-
 
 The corresponding Google/Bing satellite maps could be obtained by this program. Because Google/Bing API only provides image of limited resolution (640x640 and 350x350 respectively), this program could be used to stitch several satellite maps together to obtain a higher resolution map (1550x1182 and 805x670 respectively). Due to the copyright issues, these image is not included in the dataset, but the user could apply their API KEY and obtain them, the following diagram demonstrates the principle of this process:
 
-![image](public/image/20190528145810708.png)
+![image](read_img/stitching.jpg)
 
 
  
