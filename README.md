@@ -54,6 +54,8 @@ The corresponding Google/Bing satellite maps could be obtained by this program. 
 ## 4.GCP selector 
 GCP selector is a tool for annotating ground control points in two images that need to be matched. By calculating the homography and projecting one image onto another, the average error of these GCPs could be calculated to represent the quality of the feature matching algorithm.
 
+![image](read_img/gcp_selector.jpg)
+
 The user can select two images simultaneously and resize the first image. Resizing images is because comparing two images with very different amounts of information might be very difficult (according to my experience). Using GaussianBlur and Resize could reduce image information and get better matching results, if you choose to resize images before registration, please remember to input W and H to resize the image when selecting GCP.
 
 This is how I choose the parameter of GaussianBlur: `KERNEL = (WIDTH_1 // WIDTH_2) ^ 2 # WIDTH_1 > WIDTH_2`
