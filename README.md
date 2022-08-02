@@ -25,6 +25,8 @@ The corresponding Google/Bing satellite maps could be obtained by this program. 
 
 This method is based on the calculation of correlation coefficient, it searches for the right position for stitching line by line, once all the position is found, all images will be put together to obtain a bigger one. In addition, the water mark could be cut off in this step, this can be very helpful while performing registration tasks. Detailed steps and principles can be found in my thesis, the link will be posted later.
 
+![image](read_img/gps.jpg)
+
 
  
 ## 3.File Structure
