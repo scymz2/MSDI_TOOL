@@ -22,11 +22,12 @@ The corresponding Google/Bing satellite maps could be obtained by this program. 
 
 ![image](read_img/stitching.jpg)
 
-This method is based on the calculation of correlation coefficient, it searches for the right position for stitching line by line, once all the position is found, all images will be put together to obtain a bigger one. In addition, the water mark could be cut off in this step, this can be very helpful while performing registration tasks.
+This method is based on the calculation of correlation coefficient, it searches for the right position for stitching line by line, once all the position is found, all images will be put together to obtain a bigger one. In addition, the water mark could be cut off in this step, this can be very helpful while performing registration tasks. Detailed steps and principles can be found in my thesis, the link will be posted later.
 
 
  
 ## 3.File Structure
+The following file structure demonstrates the content of the whole project, including the images that can't be uploaded due to copyright issues. Hence, users could have a better understanding of the complete dataset and find out how this program can be reused.
 ```
 # The complete file structure (now only have utils)
 .
