@@ -30,6 +30,7 @@ if __name__ == "__main__":
 
     print("copy exif to calibrated images!")
     copy_exif(RAW_IMAGE_FILE, CALIBRATED_FILE)
+    modify_exif(CALIBRATED_FILE, {'artist': ARTIST, 'copyright': COPYRIGHT, 'user_comment': USER_COMMENT})
 
     print("get static google map!")
     map = Map(CALIBRATED_FILE, GOOGLE_STATIC_MAP_FILE)
