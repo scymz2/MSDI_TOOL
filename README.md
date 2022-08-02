@@ -10,13 +10,17 @@ This tool has four main functions:
 * Automatic camera calibration and image undistortion (checkerboard image required).
 * Obtaining corresponding Google/Bing satellite maps based on a batch of given images (GPS data required).
 * Read/Copy/Delete/Modify EXIF data for a batch of images.
-* A program with GUI used for selecting ground control points (GCPs) from both sensed image and reference image and auto-generate config file.
+* A program with GUI used for annotating ground control points (GCPs) from both sensed image and reference image and auto-generate config file.
 
 ## 2.Dataset 
 The dataset used in this project is MSDI (Manchester Surface Drone Imagery) which was collected and processed by Mochuan Zhan, supervised by Dr.Terence Patrick Morley.
 The image dataset could be found throughing the DIO: or the Link:
 
 The dataset contains 599 drone images of Manchester (447 downward facing, 89 45-degree forward facing, and 64 0-degree forward facing), 26 checkboard images taken by drone for camera calibration, camera internal parameter matrix and distortion matrix. 
+
+The corresponding Google/Bing satellite maps could be obtained by this program. Because Google/Bing API only provides image of limited resolution (640*640 and 350*350 respectively), this program could be used to stitch several satellite maps together to obtain a higher resolution map (1550*1182 and 805*670 respectively). Due to the copyright issues, these image is not included in the dataset, but the user could apply their API KEY and obtain them, the following diagram demonstrates the principle of this process:
+
+
  
 ## 3.File Structure
 ```
@@ -46,7 +50,7 @@ The dataset contains 599 drone images of Manchester (447 downward facing, 89 45-
 ```
 
 ## 4.GCP selector 
-GCP selector is a tool for selecting ground control points in two images that need to be matched. By calculating the homography and projecting one image onto another, the average error of these GCPs could be calculated to represent the quality of the feature matching algorithm.
+GCP selector is a tool for annotating ground control points in two images that need to be matched. By calculating the homography and projecting one image onto another, the average error of these GCPs could be calculated to represent the quality of the feature matching algorithm.
 
 The user can select two images simultaneously and resize the first image. Resizing images is because comparing two images with very different amounts of information might be very difficult (according to my experience). Using GaussianBlur and Resize could reduce image information and get better matching results, if you choose to resize images before registration, please remember to resize the image when selecting GCP.
 ```python
