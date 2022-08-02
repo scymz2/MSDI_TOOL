@@ -56,7 +56,7 @@ GCP selector is a tool for annotating ground control points in two images that n
 
 ![image](read_img/gcp_selector.jpg)
 
-The user can select two images simultaneously and resize the first image. Resizing images is because comparing two images with very different amounts of information might be very difficult (according to my experience). Using GaussianBlur and Resize could reduce image information and get better matching results, if you choose to resize images before registration, please remember to input W and H to resize the image when selecting GCP.
+The user can choose to resize the first image and then select GCPs for two images simultaneously. To resize image is because the the registration between two images which have huge differences in the amount of data can be very difficult. Using GaussianBlur and Resize could reduce and summerize image information and obtain better matching results, if you choose to resize images before registration, please remember to input W and H to resize the image when selecting GCP.
 
 This is how I choose the parameter of GaussianBlur: `KERNEL = (WIDTH_1 // WIDTH_2) ^ 2 # WIDTH_1 > WIDTH_2`
 
