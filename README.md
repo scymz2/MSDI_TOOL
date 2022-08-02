@@ -18,7 +18,7 @@ The image dataset could be found throughing the DIO: or the Link:
 
 The dataset contains 599 drone images of Manchester (447 downward facing, 89 45-degree forward facing, and 64 0-degree forward facing), 26 checkboard images taken by drone for camera calibration, camera internal parameter matrix and distortion matrix. 
 
-The corresponding Google/Bing satellite maps could be obtained by this program. Because Google/Bing API only provides image of limited resolution (640*640 and 350*350 respectively), this program could be used to stitch several satellite maps together to obtain a higher resolution map (1550*1182 and 805*670 respectively). Due to the copyright issues, these image is not included in the dataset, but the user could apply their API KEY and obtain them, the following diagram demonstrates the principle of this process:
+The corresponding Google/Bing satellite maps could be obtained by this program. Because Google/Bing API only provides image of limited resolution (640x640 and 350x350 respectively), this program could be used to stitch several satellite maps together to obtain a higher resolution map (1550x1182 and 805x670 respectively). Due to the copyright issues, these image is not included in the dataset, but the user could apply their API KEY and obtain them, the following diagram demonstrates the principle of this process:
 
 
  
@@ -52,19 +52,7 @@ The corresponding Google/Bing satellite maps could be obtained by this program. 
 ## 4.GCP selector 
 GCP selector is a tool for annotating ground control points in two images that need to be matched. By calculating the homography and projecting one image onto another, the average error of these GCPs could be calculated to represent the quality of the feature matching algorithm.
 
-The user can select two images simultaneously and resize the first image. Resizing images is because comparing two images with very different amounts of information might be very difficult (according to my experience). Using GaussianBlur and Resize could reduce image information and get better matching results, if you choose to resize images before registration, please remember to resize the image when selecting GCP.
-```python
-# GCP_selector.py
- def select_point(self, W, H):
-   img1 = cv2.imread(self.path1.text())
-   img1 = cv2.resize(img1, (int(W), int(H))) # please uncomment this line of code and modify W and H in config.py
-   img2 = cv2.imread(self.path2.text())
-   
-# config.py
-# ==================== Width and Height of Checker Board ==========================
-SIZE_BING = (800, 600)      # modify this if you use static map from BING MAPS
-SIZE_GOOGLE = (1536, 1152)  # modify this if you use static map from GOOGLE MAPS
-```
+The user can select two images simultaneously and resize the first image. Resizing images is because comparing two images with very different amounts of information might be very difficult (according to my experience). Using GaussianBlur and Resize could reduce image information and get better matching results, if you choose to resize images before registration, please remember to input W and H to resize the image when selecting GCP.
 
 This is how I choose the parameter of GaussianBlur: `KERNEL = (WIDTH_1 // WIDTH_2) ^ 2 # WIDTH_1 > WIDTH_2`
 
