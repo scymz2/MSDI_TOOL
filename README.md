@@ -27,6 +27,8 @@ This method is based on the calculation of correlation coefficient, it searches 
 
 ![image](read_img/gps.jpg)
 
+In our calibrated images, all EXIF data has been copied from raw images, including GPS data. As for the aerial images retrieved from Google/Bing, their format is PNG, so the EXIF doesn't work on it.
+
 
  
 ## 3.File Structure
