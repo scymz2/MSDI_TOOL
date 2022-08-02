@@ -4,13 +4,14 @@
 
 This is the util tools for Mochuan Zhan's MSC project: "Registration of UAV Imagery to Aerial and Satellite Imagery" at the University of Manchester (https://www.manchester.ac.uk/), supervised by Dr.Terence Patrick Morley.  
 
+This tool has four main parts:
+* Python program for automatic camera calibration and image undistortion (checkerboard image required).
+* Python program for obtaining corresponding Google/Bing satellite maps based on a batch of given images (GPS data required).
+* Python program to read/copy/delete/modify EXIF data for a batch of images.
+* Python program with GUI used for annotating ground control points (GCPs) from both sensed image and reference image and auto-generate config file.
+
 The basic idea of the project is to investigate various methods for the registration of downward-facing (nadir) drone imagery to higher altitude aerial and satellite imagery (Google, Bing), and possibly develop a system based on visual localization and navigation of drones (UAV) as opposed to using a satellite navigation system such as GPS. This project is based on the research of local feature detectors and high-throughput computing techniques.
 
-This tool has four main functions:
-* Automatic camera calibration and image undistortion (checkerboard image required).
-* Obtaining corresponding Google/Bing satellite maps based on a batch of given images (GPS data required).
-* Read/Copy/Delete/Modify EXIF data for a batch of images.
-* A program with GUI used for annotating ground control points (GCPs) from both sensed image and reference image and auto-generate config file.
 
 ## 2.Dataset 
 The dataset used in this project is MSDI (Manchester Surface Drone Imagery) which was collected and processed by Mochuan Zhan, supervised by Dr.Terence Patrick Morley.
