@@ -221,8 +221,8 @@ class App(QWidget):
                 QMessageBox.information(self, 'Notice', 'Please select only image files', QMessageBox.Ok)
             elif imghdr.what(self.path2.text()) not in imgType_list:
                 QMessageBox.information(self, 'Notice', 'Please select only image files', QMessageBox.Ok)
-            elif W == '' or H == '':
-                QMessageBox.information(self, 'Notice', 'Please input W and H for image1 to resize!', QMessageBox.Ok)
+            elif (W == '') ^ (H == ''):
+                QMessageBox.information(self, 'Notice', 'Please input correct W and H for image1 to resize!', QMessageBox.Ok)
             else:
                 if not self.flag:
                     self.create_tk()
@@ -231,7 +231,8 @@ class App(QWidget):
 
     def select_point(self, W, H):
         img1 = cv2.imread(self.path1.text())
-        img1 = cv2.resize(img1, (int(W), int(H)))
+        if W != '' and H != '':
+            img1 = cv2.resize(img1, (int(W), int(H)))
         img2 = cv2.imread(self.path2.text())
         cv2.namedWindow('img1', flags=cv2.WINDOW_NORMAL)
         cv2.resizeWindow('img1', 800, 600)
