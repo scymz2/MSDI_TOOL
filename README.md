@@ -2,15 +2,21 @@
 
 ## 1.Introduction
 
-This is the util tools for my MSC project: "Registration of UAV Imagery to Aerial and Satellite Imagery" at the university of manchester, supervised by Terence Patrick Morley.  
+This is the util tools for Mochuan Zhan's MSC project: "Registration of UAV Imagery to Aerial and Satellite Imagery" at the University of Manchester (https://www.manchester.ac.uk/), supervised by Dr.Terence Patrick Morley.  
 
-The basic idea of the project is to investigate various methods for the registration of downward-facing (nadir) drone imagery to higher altitude aerial and satellite imagery (Google, Bing), and possibly develop a system base on visual localization and navigation of drones (UAV) as opposed to using a satellite navigation system such as GPS.
+The basic idea of the project is to investigate various methods for the registration of downward-facing (nadir) drone imagery to higher altitude aerial and satellite imagery (Google, Bing), and possibly develop a system based on visual localization and navigation of drones (UAV) as opposed to using a satellite navigation system such as GPS. This project is based on the research of local feature detectors and high-throughput computing techniques.
+
+This tool has four main functions:
+* Automatic camera calibration and image undistortion (checkerboard image required).
+* Obtaining corresponding Google/Bing satellite maps based on a batch of given images (GPS data required).
+* Read/Copy/Delete/Modify EXIF data for a batch of images.
+* A program with GUI used for selecting ground control points (GCPs) from both sensed image and reference image and auto-generate config file.
 
 ## 2.Dataset 
-The dataset used in this project is MSDI (Manchester Surface Drone Imagery) which collected and processed by myself.
-The image dataset could be found using the DIO: or the Link:
+The dataset used in this project is MSDI (Manchester Surface Drone Imagery) which was collected and processed by Mochuan Zhan, supervised by Dr.Terence Patrick Morley.
+The image dataset could be found throughing the DIO: or the Link:
 
-The dataset contains totally 536 drone images of the city of manchester (447 downward facing and 89 45-degree forward facing) and 26 checkboard images taken by drone for camera calibration. 
+The dataset contains 599 drone images of Manchester (447 downward facing, 89 45-degree forward facing, and 64 0-degree forward facing), 26 checkboard images taken by drone for camera calibration, camera internal parameter matrix and distortion matrix. 
  
 ## 3.File Structure
 ```
@@ -21,14 +27,13 @@ The dataset contains totally 536 drone images of the city of manchester (447 dow
 │   ├── bing_advance_static_images      # Stitched Bing static map without watermark
 │   ├── calibrated_images               # Calibrated drone images
 │   ├── checkboard_images               # Checkboard images taken by drone
-│   ├── forward_45_images               # 45-degree forward facing drone images
 │   ├── google_advance_static_images    # Stitched Google static map without watermark
 │   ├── google_static_images            # Google static map with watermark
 │   ├── raw_images                      # Raw drone images
 │   └── README.txt                      
 ├── model
 │   ├── model_distortion.txt            # data for drone image distortion
-│   └── model_matrix.txt                # Camera parameter matrix 
+│   └── model_matrix.txt                # Camera internal parameter matrix 
 ├── utils
 │   ├── calibration.py                  # Class for camera calibration and image distortion
 │   ├── config.py                       # configuration file for utils tools
@@ -41,9 +46,21 @@ The dataset contains totally 536 drone images of the city of manchester (447 dow
 ```
 
 ## 4.GCP selector 
-GCP selector is a tool for selecting ground control points in two images that need to be matched. By calculating the homography and projecting one image to another, the average error of these GCPs could be calculated to represent the quality of the feature matching algorithm.
+GCP selector is a tool for selecting ground control points in two images that need to be matched. By calculating the homography and projecting one image onto another, the average error of these GCPs could be calculated to represent the quality of the feature matching algorithm.
 
-The user can select two images simultaneously and resize the first image. Resizing images is because comparing two images with very different amounts of information might be very difficult (according to my experience). Using GaussianBlur and Resize could reduce image information and get better matching results.
+The user can select two images simultaneously and resize the first image. Resizing images is because comparing two images with very different amounts of information might be very difficult (according to my experience). Using GaussianBlur and Resize could reduce image information and get better matching results, if you choose to resize images before registration, please remember to resize the image when selecting GCP.
+```python
+# GCP_selector.py
+ def select_point(self, W, H):
+   img1 = cv2.imread(self.path1.text())
+   img1 = cv2.resize(img1, (int(W), int(H))) # please uncomment this line of code and modify W and H in config.py
+   img2 = cv2.imread(self.path2.text())
+   
+# config.py
+# ==================== Width and Height of Checker Board ==========================
+SIZE_BING = (800, 600)      # modify this if you use static map from BING MAPS
+SIZE_GOOGLE = (1536, 1152)  # modify this if you use static map from GOOGLE MAPS
+```
 
 This is how I choose the parameter of GaussianBlur: `KERNEL = (WIDTH_1 // WIDTH_2) ^ 2 # WIDTH_1 > WIDTH_2`
 
@@ -68,6 +85,18 @@ GCP,2,678,660
 2. apply for Google/Bing Static Map API KEY (Google is not free, but a free trial could be used for a couple of month)
 3. modify config.py
 ```python
+# ==================== File Paths =================================================
+# ADD ABSOLUTE PATHS FOR THE FOLLOWING FILE
+CHECKER_BOARD_PATH = r'PATH'
+RAW_IMAGE_FILE = r'PATH'
+CALIBRATED_FILE = r'PATH'
+GOOGLE_STATIC_MAP_FILE = r'PATH'
+GOOGLE_ADVANCE_STATIC_MAP_FILE = r'PATH'
+BING_ADVANCE_STATIC_MAP_FILE = r'PATH'
+
+# ==================== Calibration model path =====================================
+# ADD ABSOLUTE PATHS FOR THE FOLLOWING FILE
+MODEL_NAME = r'PATH'
 
 # ==================== API KEY FOR GOOGLE MAP =====================================
 GOOGLE_API_KEY = "INPUT YOUR API KEY HERE"
@@ -86,6 +115,10 @@ USER_COMMENT = 'CALIBRATED'
 4. Run main.py
 ```python
 if __name__ == "__main__":
+
+    print("add information to raw images!")
+    modify_exif(CALIBRATED_FILE, {'artist': ARTIST, 'copyright': COPYRIGHT, 'user_comment': 'RAW IMAGE'})
+    
     calib = Calibration()
     print("start create calibrate model!")
     calib.create_model(WIDTH, HEIGHT, CHECKER_BOARD_PATH) 
@@ -93,11 +126,11 @@ if __name__ == "__main__":
     print("start undistort!")
     calib.undistort(RAW_IMAGE_FILE, CALIBRATED_FILE)
 
-    content = {'artist': ARTIST, 'copyright': COPYRIGHT, 'user_comment': USER_COMMENT}
+    
     print("copy exif to calibrated images!")
     copy_exif(RAW_IMAGE_FILE, CALIBRATED_FILE)
-    print("modify exif to calibrated images!")
-    modify_exif(CALIBRATED_FILE, content)
+    modify_exif(CALIBRATED_FILE, {'artist': ARTIST, 'copyright': COPYRIGHT, 'user_comment': USER_COMMENT})
+    
 
     print("get static google map!")
     map = Map(CALIBRATED_FILE, GOOGLE_STATIC_MAP_FILE)
