@@ -1,4 +1,5 @@
-# Mochuan Zhan , 2022/ 7/15 The university of manchester
+# Mochuan Zhan , 2022/ 7/15 The University of Manchester
+# UTF-8
 
 import numpy as np
 import cv2 as cv

@@ -1,4 +1,6 @@
-# Mochuan Zhan , 2022/ 7/15 The university of manchester
+# Mochuan Zhan , 2022/ 7/15 The University of Manchester
+# UTF-8
+
 from utils.config import GOOGLE_API_KEY
 from utils.config import BING_API_KEY
 from utils.config import GOOGLE_URL

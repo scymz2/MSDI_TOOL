@@ -1,4 +1,5 @@
-# Mochuan Zhan , 2022/ 7/15 The university of manchester
+# Mochuan Zhan , 2022/ 7/15 The University of Manchester
+# UTF-8
 
 # This is a program for selecting the ground control point
 # If you need to resize your first image for feature matching, please input your new width and height, or
@@ -230,7 +231,7 @@ class App(QWidget):
 
     def select_point(self, W, H):
         img1 = cv2.imread(self.path1.text())
-        img1 = cv2.resize(img1, (int(W), int(H)))
+        #img1 = cv2.resize(img1, (int(W), int(H))) # if you need to resize image, please read document to modify W and H
         img2 = cv2.imread(self.path2.text())
         cv2.namedWindow('img1', flags=cv2.WINDOW_NORMAL)
         cv2.resizeWindow('img1', 800, 600)

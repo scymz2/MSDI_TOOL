@@ -1,6 +1,10 @@
 # Mochuan Zhan , 2022/ 7/15 The University of Manchester
+# UTF-8
+
 from exif import Image
 import piexif
+import piexif.helper
+from PIL import Image as PILImage
 import glob
 
 
@@ -97,13 +101,17 @@ def modify_exif(path, content):
         images = glob.glob(file_name + '/*.jpg')
         for img in images:
             print(img)
-            with open(img, 'rb') as image_file:
-                raw_image = Image(image_file)
-                if raw_image.has_exif:
-                    for i, j in content.items():
-                        raw_image.set(i, j)
-                else:
-                    print('Error, no exif:' + img)
+            raw_image = PILImage.open(img)
+            exif_dict = piexif.load(raw_image.info['exif'])
+            for label, txt in content.items():
+                if label == 'user_comment':
+                    user_comment = piexif.helper.UserComment.dump(txt)
+                    exif_dict['Exif'][piexif.ExifIFD.UserComment] = user_comment
+                elif label == 'copyright':
+                    exif_dict['0th'][piexif.ImageIFD.Copyright] = txt.encode()
+                elif label == 'artist':
+                    exif_dict['0th'][piexif.ImageIFD.Artist] = txt.encode()
 
-            with open(img, 'wb') as new_image:
-                new_image.write(raw_image.get_file())
+            # save images
+            exif_bytes = piexif.dump(exif_dict)
+            raw_image.save(img, exif=exif_bytes)

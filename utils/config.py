@@ -13,15 +13,21 @@ SIZE_BING = (800, 600)
 SIZE_GOOGLE = (1536, 1152)
 
 # ==================== File Paths =================================================
-CHECKER_BOARD_PATH = 'data/checkerboard_images'
-RAW_IMAGE_FILE = 'data/raw_images'
-CALIBRATED_FILE = 'data/calibrated_images'
-GOOGLE_STATIC_MAP_FILE = 'data/google_static_images'
-GOOGLE_ADVANCE_STATIC_MAP_FILE = 'data/google_advance_static_images'
-BING_ADVANCE_STATIC_MAP_FILE = 'data/bing_advance_static_images'
+"""
+PLEASE ADD ABSOLUTE PATHS HERE
+"""
+CHECKER_BOARD_PATH = r'D:\MSC Pictures\Image_registration\data\checkerboard_images'
+RAW_IMAGE_FILE = r'D:\MSC Pictures\Image_registration\data\raw_images'
+CALIBRATED_FILE = r'D:\MSC Pictures\Image_registration\data\calibrated_images'
+GOOGLE_STATIC_MAP_FILE = r'D:\MSC Pictures\Image_registration\data\google_static_images'
+GOOGLE_ADVANCE_STATIC_MAP_FILE = r'D:\MSC Pictures\Image_registration\data\google_advance_static_images'
+BING_ADVANCE_STATIC_MAP_FILE = r'D:\MSC Pictures\Image_registration\data\bing_advance_static_images'
 
-# ==================== Calibration model name =====================================
-MODEL_NAME = 'model/model'
+# ==================== Calibration model path =====================================
+"""
+PLEASE ADD ABSOLUTE PATHS HERE
+"""
+MODEL_NAME = r'D:\MSC Pictures\Image_registration\model\model'
 
 # ==================== API KEY FOR GOOGLE MAP =====================================
 GOOGLE_API_KEY = "INPUT YOUR API KEY HERE"

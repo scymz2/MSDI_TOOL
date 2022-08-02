@@ -1,4 +1,4 @@
-# Mochuan Zhan , 2022/ 7/15 The university of manchester
+# Mochuan Zhan , 2022/ 7/15 The University of Manchester
 # UTF- 8
 
 from utils.calibration import Calibration
@@ -17,6 +17,10 @@ from utils.config import COPYRIGHT
 from utils.config import USER_COMMENT
 
 if __name__ == "__main__":
+    print("add information to raw images!")
+    content = {'artist': ARTIST, 'copyright': COPYRIGHT, 'user_comment': 'RAW IMAGE'}
+    modify_exif(RAW_IMAGE_FILE, content)
+
     calib = Calibration()
     print("start create calibrate model!")
     calib.create_model(WIDTH, HEIGHT, CHECKER_BOARD_PATH)
@@ -24,11 +28,8 @@ if __name__ == "__main__":
     print("start undistort!")
     calib.undistort(RAW_IMAGE_FILE, CALIBRATED_FILE)
 
-    content = {'artist': ARTIST, 'copyright': COPYRIGHT, 'user_comment': USER_COMMENT}
     print("copy exif to calibrated images!")
     copy_exif(RAW_IMAGE_FILE, CALIBRATED_FILE)
-    print("modify exif to calibrated images!")
-    modify_exif(CALIBRATED_FILE, content)
 
     print("get static google map!")
     map = Map(CALIBRATED_FILE, GOOGLE_STATIC_MAP_FILE)
