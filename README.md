@@ -2,7 +2,7 @@
 
 ## 1.Introduction
 
-This is the util tool for Mochuan Zhan's MSC project: "Registration of UAV Imagery to Aerial and Satellite Imagery" at the University of Manchester (https://www.manchester.ac.uk/), supervised by Dr.Terence Patrick Morley.  
+This is the utility tools for Mochuan Zhan's MSC project: "Registration of UAV Imagery to Aerial and Satellite Imagery" at the University of Manchester (https://www.manchester.ac.uk/), supervised by Dr.Terence Patrick Morley.  
 
 This tool has four main parts:
 * Python program for automatic camera calibration and image undistortion (checkerboard image required).
