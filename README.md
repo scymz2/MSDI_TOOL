@@ -15,7 +15,7 @@ The basic idea of the project is to investigate various methods for the registra
 
 ## 2.Dataset 
 The dataset used in this project is MSDI (Manchester Surface Drone Imagery) which was collected and processed by Mochuan Zhan, supervised by Dr.Terence Patrick Morley.
-The image dataset could be found through the DIO: 10.5281/zenodo.6977602.
+The image dataset could be found through the $DIO: 10.5281/zenodo.6977602$.
 
 The dataset contains 599 drone images of Manchester (447 downward facing, 89 45-degree forward facing, and 64 0-degree forward facing), 26 checkboard images taken by drone for camera calibration, camera internal parameter matrix and distortion matrix. 
 
