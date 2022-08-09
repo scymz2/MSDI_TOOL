@@ -12,6 +12,8 @@ This tool has four main parts:
 
 The basic idea of the project is to investigate various methods for the registration of downward-facing (nadir) drone imagery to higher altitude aerial and satellite imagery (Google, Bing), and possibly develop a system based on visual localization and navigation of drones (UAV) as opposed to using a satellite navigation system such as GPS. This project is based on the research of local feature detectors and high-throughput computing techniques.
 
+If you want to cite this code, please use: [![DOI](https://zenodo.org/badge/514431655.svg)](https://zenodo.org/badge/latestdoi/514431655)
+
 
 ## 2.Dataset 
 The dataset used in this project is MSDI (Manchester Surface Drone Imagery) which was collected and processed by Mochuan Zhan, supervised by Dr.Terence Patrick Morley.
