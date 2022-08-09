@@ -37,6 +37,7 @@ The following file structure demonstrates the content of the whole project, incl
 # The complete file structure (now only have utils)
 .
 ├── README.md
+├── LISENSE
 ├── data                                # Image dataset 
 │   ├── bing_advance_static_images      # Stitched Bing static map without watermark
 │   ├── calibrated_images               # Calibrated drone images
