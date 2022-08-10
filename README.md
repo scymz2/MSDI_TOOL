@@ -17,7 +17,7 @@ If you want to cite this code, please use: [![DOI](https://zenodo.org/badge/5144
 
 ## 2.Dataset 
 The dataset used in this project is MSDI (Manchester Surface Drone Imagery) which was collected and processed by Mochuan Zhan, supervised by Dr.Terence Patrick Morley.
-The image dataset could be found through the [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6977602.svg)](https://doi.org/10.5281/zenodo.6977602)
+The image dataset can be found through the [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6977602.svg)](https://doi.org/10.5281/zenodo.6977602)
 
 ![image](read_img/sample.jpg)
 
