@@ -19,6 +19,8 @@ If you want to cite this code, please use: [![DOI](https://zenodo.org/badge/5144
 The dataset used in this project is MSDI (Manchester Surface Drone Imagery) which was collected and processed by Mochuan Zhan, supervised by Dr.Terence Patrick Morley.
 The image dataset could be found through the [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.6977602.svg)](https://doi.org/10.5281/zenodo.6977602)
 
+![image](read_img/sample.jpg)
+
 The dataset contains 599 drone images of Manchester (447 downward facing, 89 45-degree forward facing, and 64 0-degree forward facing), 26 checkboard images taken by drone for camera calibration, camera internal parameter matrix and distortion matrix. 
 
 The corresponding Google/Bing satellite maps could be obtained by this program. Because Google/Bing API only provides images of limited resolution (640x640 and 350x350 respectively), this program could be used to stitch several satellite maps together to obtain a higher resolution map (1550x1182 and 805x670 respectively). Due to copyright issues, these image is not included in the dataset, but the user could apply their API KEY and obtain them, the following diagram demonstrates the principle of this process:
