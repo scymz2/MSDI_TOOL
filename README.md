@@ -89,7 +89,7 @@ GCP,2,299,1052
 GCP,2,678,660
 ```
 
-## 5.Run util tool
+## 5.Run utility tools
 1. install Python 3.7 and required packages ` pip install -r requirements`
 2. apply for Google/Bing Static Map API KEY (Google is not free, but a free trial could be used for a couple of month)
 3. modify config.py
