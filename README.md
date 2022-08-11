@@ -2,11 +2,11 @@
 
 ## 1.Introduction
 
-This is the utility tools for Mochuan Zhan's MSC project: "Registration of UAV Imagery to Aerial and Satellite Imagery" at the University of Manchester (https://www.manchester.ac.uk/), supervised by Dr.Terence Patrick Morley.  
+This is the utility tool for Mochuan Zhan's MSC project: "Registration of UAV Imagery to Aerial and Satellite Imagery" at the University of Manchester (https://www.manchester.ac.uk/), supervised by Dr.Terence Patrick Morley.  
 
 This tool has four main parts:
 * Python program for automatic camera calibration and image undistortion (checkerboard image required).
-* Python program for obtaining corresponding Google/Bing satellite maps based on a batch of given images (GPS data required).
+* anPython program for obtaining corresponding Google/Bing satellite maps based on a batch of given images (GPS data required).
 * Python program to read/copy/delete/modify EXIF data for a batch of images.
 * Python program with GUI used for annotating ground control points (GCPs) from both sensed image and reference image and auto-generate config file.
 
@@ -23,7 +23,7 @@ The image dataset can be found through the [![DOI](https://zenodo.org/badge/DOI/
 
 The dataset contains 599 drone images of Manchester (447 downward facing, 89 45-degree forward facing, and 64 0-degree forward facing), 26 checkboard images taken by drone for camera calibration, camera internal parameter matrix and distortion matrix. 
 
-The corresponding Google/Bing satellite maps could be obtained by this program. Because Google/Bing API only provides images of limited resolution (640x640 and 350x350 respectively), this program could be used to stitch several satellite maps together to obtain a higher resolution map (1550x1182 and 805x670 respectively). Due to copyright issues, these image is not included in the dataset, but the user could apply their API KEY and obtain them, the following diagram demonstrates the principle of this process:
+The corresponding Google/Bing satellite maps can be obtained by this program. Because Google/Bing API only provides images of limited resolution (640x640 and 350x350 respectively), this program could be used to stitch several satellite maps together to obtain a higher resolution map (1550x1182 and 805x670 respectively). Due to copyright issues, these image is not included in the dataset, but the user could apply their API KEY and obtain them, the following diagram demonstrates the principle of this process:
 
 ![image](read_img/stitching.jpg)
 
