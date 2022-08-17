@@ -23,7 +23,7 @@ The image dataset can be found through the [![DOI](https://zenodo.org/badge/DOI/
 
 The dataset contains 599 drone images of Manchester (447 downward facing, 89 45-degree forward facing, and 64 0-degree forward facing), 26 checkboard images taken by drone for camera calibration, camera internal parameter matrix and distortion matrix. 
 
-The corresponding Google/Bing satellite maps can be obtained by this program. Because Google/Bing API only provides images of limited resolution (640x640 ~ 1280x1280 and 350x350 respectively), this program could be used to stitch several satellite maps together to obtain a higher resolution map (1550x1182 ~ 3100x2364 and 805x670 respectively). By the way, this method might will be repalced by an approach using "tiles" in the future (example: see https://github.com/simonw/datasette-tiles/issues/17). Due to copyright issues, these image is not included in the dataset, but the user could apply their API KEY and obtain them, the following diagram demonstrates the principle of this process:
+The corresponding Google/Bing satellite maps can be obtained by this program. Because Google/Bing API only provides images of limited resolution (640x640 ~ 1280x1280 and 350x350 respectively), this program could be used to stitch several satellite maps together to obtain a higher resolution map (1550x1182 ~ 3100x2364 and 805x670 respectively). By the way, this method will be repalced by the approach using "tiles" in the incoming version (example: see https://github.com/simonw/datasette-tiles/issues/17). Due to copyright issues, these image is not included in the dataset, but the user could apply their API KEY and obtain them, the following diagram demonstrates the principle of this process:
 
 ![image](read_img/stitching.jpg)
 
