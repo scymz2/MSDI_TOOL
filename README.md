@@ -6,7 +6,7 @@ This is the utility tool for Mochuan Zhan's MSC project: "Registration of UAV Im
 
 This tool has four main parts:
 * Python program for automatic camera calibration and image undistortion (checkerboard image required).
-* anPython program for obtaining corresponding Google/Bing satellite maps based on a batch of given images (GPS data required).
+* Python program for obtaining corresponding Google/Bing satellite maps based on a batch of given images (GPS data required).
 * Python program to read/copy/delete/modify EXIF data for a batch of images.
 * Python program with GUI used for annotating ground control points (GCPs) from both sensed image and reference image and auto-generate config file.
 
