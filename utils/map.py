@@ -115,6 +115,7 @@ class Map:
             self.url = GOOGLE_URL
             self.zoom = 19
             self.size = '640x640'
+            #self.scale = 2 # range: from 1 to 2, if scale = 2, size = '1280x1280', but the code needs to be modified to use this parameter.
         elif source == 'bing':
             self.sta_path = BING_ADVANCE_STATIC_MAP_FILE
             self.__key = BING_API_KEY
