@@ -115,12 +115,13 @@ class Map:
             self.url = GOOGLE_URL
             self.zoom = 19
             self.size = '640x640'
-            #self.scale = 2 # range: from 1 to 2, if scale = 2, size = '1280x1280', but the code needs to be modified to use this parameter.
+            self.scale = 2 
         elif source == 'bing':
             self.sta_path = BING_ADVANCE_STATIC_MAP_FILE
             self.__key = BING_API_KEY
             self.url = BING_URL
-            self.zoom = 19
+            self.zoom = 20
+            self.size = '1280,1280'
             # check source
         else:
             print("please input google or bing!")
@@ -137,7 +138,7 @@ class Map:
         GPS = get_GPS(img)
         # center defines the center of the map
         self.center = str(GPS['Latitude'] + offset_lat) + ',' + str(GPS['Longitude'] + offset_lon)
-        http = self.url + self.center + '/' + str(self.zoom) + '?' + 'key=' + self.__key
+        http = self.url + self.center + '/' + str(self.zoom) + '?' + 'mapSize=' + self.size + '&key=' + self.__key
         r = requests.get(http)
         print(http)
         return r
@@ -154,7 +155,7 @@ class Map:
         # center defines the center of the map
         self.center = str(GPS['Latitude'] + offset_lat) + ',' + str(GPS['Longitude'] + offset_lon)
         http = self.url + "&center=" + self.center + "&zoom=" + str(
-            self.zoom) + "&size=" + self.size + "&key=" + self.__key
+            self.zoom) + "&size=" + self.size + "&scale" + self.scale + "&key=" + self.__key
         r = requests.get(http)
         print(http)
         return r
@@ -166,7 +167,7 @@ class Map:
         :return: stitched image data
         """
         func_dict = {"google": self.__request_google_image, "bing": self.__request_bing_image}
-        size_dict = {"google": (640, 480), "bing": (350, 320)}
+        size_dict = {"google": (1280, 960), "bing": (1280, 960)}
 
         # get x and y
         x = size_dict.get(self.source)[0]
