@@ -114,14 +114,14 @@ class Map:
             self.__key = GOOGLE_API_KEY
             self.url = GOOGLE_URL
             self.zoom = 19
-            self.size = '640x640'
+            self.size = '640x680' # leave 40 pixels for the water mark, this part will be cut off
             self.scale = 2 
         elif source == 'bing':
             self.sta_path = BING_ADVANCE_STATIC_MAP_FILE
             self.__key = BING_API_KEY
             self.url = BING_URL
             self.zoom = 20
-            self.size = '1280,1280'
+            self.size = '1280,1320' # leave 40 pixels for the water mark, this part will be cut off
             # check source
         else:
             print("please input google or bing!")
@@ -167,7 +167,7 @@ class Map:
         :return: stitched image data
         """
         func_dict = {"google": self.__request_google_image, "bing": self.__request_bing_image}
-        size_dict = {"google": (1280, 960), "bing": (1280, 960)}
+        size_dict = {"google": (1280, 1280), "bing": (1280, 1280)}
 
         # get x and y
         x = size_dict.get(self.source)[0]
